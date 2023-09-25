@@ -14,126 +14,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OurDreams University</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        .row.content {height: 550px}
 
-        /* Set gray background color and 100% height */
-        .sidenav {
-            background-color: #f1f1f1;
-            height: 100%;
-        }
 
-        /* On small screens, set height to 'auto' for the grid */
-        @media screen and (max-width: 767px) {
-            .row.content {height: auto;}
-        }
-    </style>
-    <style><%@include file="/WEB-INF/css/style.css"%></style>
+    <script src="chart.js"></script>
+
+    <style><%@include file="/WEB-INF/css/dashboard.css"%></style>
+
 </head>
 <body>
-<nav class="navbar navbar-inverse visible-xs">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Logo</a>
-        </div>
 
+<div class="container1">
+    <div class="div1">
+        <img src="uni3.png">
     </div>
-</nav>
+    <div class="div2">
+        <h2 style="color:white; font-family:Arial, Helvetica, sans-serif">OurDreams University</h2>
+    </div>
 
-<div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-3 sidenav hidden-xs">
-            <h2>OurDreams University</h2>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><button>Dashboard</button></li>
-                <li> <form id="pas" action="enrollPerCourseServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Total Students Enrolled Per Course</button></div></form></li>
-                <li> <form id="pas1" action="passModuleServlet" method="post">
-                    <div class="bar"><button type="submit">Total Students Pass In Each Module</button></div></form></li>
-                <li> <form id="pas2" action="failModuleServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Total Students Fail For Each Module</button></div></form></li>
-                <li> <form id="pas3" action="studentLecturerServlet" method="post">
-                    <div class="bar"><button type="submit">Total Students for Each Lecturer</button></div></form></li>
-                <li> <form id="pas4" action="registerYearServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Total Students Registered In each Year</button></div></form></li>
-                <li> <form id="pas5" action="availCourseServlet" method="post">
-                    <div class="bar"><button type="submit">Available Courses and Their Modules</button></div></form></li>
-                <li> <form id="pas6" action="availModuleServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Top 5 Most enrolled Modules and Lecturers</button></div></form></li>
-                <li> <form id="pas7" action="lecturerListServlet" method="post">
-                    <div class="bar"><button type="submit">Lecturers and Their Modules</button></div></form></li>
-                <li> <form id="pas8" action="totalStudentServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Total Students On Campus</button></div></form></li>
-                <li> <form id="pas10" action="incomeServlet" method="post">
-                    <div class="bar"><button type="submit" style="background-color: #2c3e50;">Total Income for Year 2020</button></div></form></li>
-
-            </ul><br>
-        </div>
-        <br>
-
-        <div class="col-sm-9">
-            <div class="well">
-                <h4>Dashboard</h4>
-                <p>Welcome to OurDreams University</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h4>Age Distribution</h4>
-                        <canvas id="mAgeDistributionChart"></canvas>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h4>Students vs Cities</h4>
-                        <canvas id="cityCount"></canvas>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h4>Total Modules</h4>
-                        <p>${totalModuleCount}</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h4>Total Teachers</h4>
-                        <p>${totalTeacherCount}</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="well">
-                        <h4>Total Enrollments</h4>
-                        <p>${totalEnrollmentCount}</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-
+    <div class="div4">
+        <button id="logoutButton" onclick="logout();" style="width: 95px;text-align:center;padding: 14px 20px; ">LogOut</button>
     </div>
 </div>
 
+<div class="container2">
+    <div class="div5">
+        <form id="pas" action="enrollPerCourseServlet" method="post">
+            <div class="bar"><button type="submit" style="background-color: #d5eeee; color:black;">Total Students Enrolled Per Course</button></div></form>
+    </div>
+    <div class="div6">
+        <form id="pas1" action="passModuleServlet" method="post">
+            <div class="bar"><button type="submit">Total Students Pass In Each Module</button></div></form>
+    </div>
+    <div class="div7">
+        <form id="pas2" action="failModuleServlet" method="post">
+            <div class="bar"><button type="submit" style="background-color: #d5eeee;color:black;">Total Students Fail For Each Module</button></div></form>
+    </div>
+    <div class="div8">
+        <form id="pas3" action="studentLecturerServlet" method="post">
+            <div class="bar"><button type="submit">Total Students for Each Lecturer</button></div></form>
+    </div>
+    <div class="div9">
+        <form id="pas4" action="registerYearServlet" method="post">
+            <div class="bar">
+                <button type="submit" style="background-color: #d5eeee;color:black;width:50%; float: left;width:200px;">Total Students Registered</button>
+                <input type="text" name="year" placeholder="Year" style="width:29%;height:25px;top:16px;" required>
+            </div>
+        </form>
+    </div>
+    <div class="div10">
+        <form id="pas5" action="availCourseServlet" method="post">
+            <div class="bar"><button type="submit">Available Courses and Their Modules</button></div></form>
+    </div>
+    <div class="div11">
+        <form id="pas6" action="availModuleServlet" method="post">
+            <div class="bar"><button type="submit" style="background-color: #d5eeee;color:black;">Top 5 Most enrolled Modules and Lecturers</button></div></form>
+    </div>
+    <div class="div12">
+        <form id="pas7" action="lecturerListServlet" method="post">
+            <div class="bar"><button type="submit">Lecturers and Their Modules</button></div></form>
+    </div>
+    <div class="div13">
+        <form id="pas8" action="failedStudentServlet" method="post">
+            <div class="bar">
+                <button type="submit" style="background-color: #d5eeee;color:black;width:50%; float: left;width:200px;">Total Students Fails</button>
+                <input type="text" name="year" placeholder="Year" style="width:50%;width:29%;height:25px;top:7px;" required>
+            </div>
+        </form>
+    </div>
+    <div class="div14">
+        <form id="pas10" action="passedStudentServlet" method="post">
+            <div class="bar">
+                <button type="submit" style="width:50%; float: left;width:200px;">Total Student Passed the Examination</button>
+                <input type="text" name="year" placeholder="Year" style="width:50%;width:29%;height:25px;top:14px;" required>
+            </div>
+        </form>
+    </div>
+    <div class="div15"></div>
+</div>
+
+<div class="container3">
+    <div class="div16a">
+        <h4>Age Distribution</h4>
+        <canvas id="mAgeDistributionChart" style="z-index: 1;"></canvas>
+    </div>
+    <div class="div16b">
+        <h4>Students vs Cities</h4>
+        <canvas id="cityCount"></canvas>
+    </div>
+    <div class="div17"></div>
+
+</div>
+
+<div class="container4">
+    <div class="div18">
+        <h4>Total Modules</h4>
+        <p>${totalModuleCount}</p>
+    </div>
+    <div class="div19">
+        <h4>Total Teachers</h4>
+        <p>${totalTeacherCount}</p>
+    </div>
+    <div class="div20">
+        <h4>Total Enrollments</h4>
+        <p>${totalEnrollmentCount}</p>
+    </div>
+
+
+</div>
+<div class="footer">
+    <p>Author: NyanMinThant &copy;<br>
+        <i>ourdreams.com</i></p>
+</div>
 <script>
     // Extract data from the list
     const keys = [];
@@ -157,7 +151,7 @@
                     // Add more colors as needed
                 ],
                 borderColor: [
-                    'rgb(0,36,255)',
+                    '#ffffff',
 
                     // Add more colors as needed
                 ],
@@ -189,17 +183,17 @@
                 data: values2,
                 backgroundColor: [
                     '#b4ff00',
-                    'rgba(0,151,255,0.5)',
-                    'rgba(255,180,0,0.5)',
+                    '#588974',
+                    '#271e23',
                     'rgba(0,252,255,0.5)',
-                    'rgba(178,0,255,0.5)',
-                    'rgba(0,89,12,0.5)',
-                    'rgba(255,0,0,0.5)',
-                    'rgba(255,94,0,0.5)',
+                    '#d9c4b1',
+                    '#a77f5c',
+                    '#ffc600',
+                    '#c03b2c',
                     // Add more colors as needed
                 ],
                 borderColor: [
-                    'rgb(0,36,255)',
+                    '#ffffff',
                     // Add more colors as needed
                 ],
                 borderWidth: 1
@@ -210,13 +204,11 @@
         }
     });
 </script>
+<script>
+    function logout(){
+        window.history.back();
+    }
+</script>
 
-
-<div class="footer">
-
-        <p><i>OurDreams.com<br><br>
-            Author: Nyan Min Thant</i></p>
-
-</div>
 </body>
 </html>

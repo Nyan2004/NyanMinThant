@@ -5,26 +5,26 @@
 <html>
 <head>
   <title>Enrollment Per Course</title>
-  <style><%@include file="/WEB-INF/css/style.css"%></style>
+  <style><%@include file="/WEB-INF/css/signin.css"%></style>
   <script src="<%=request.getContextPath()%>/resources/js/script.js"></script>
 </head>
 <body>
 <h2>Our Dreams University</h2>
-<h3>Teachers and Their Module Names</h3>
+<h3>Total Failed Students</h3>
 <div class="tableFHead">
   <table>
     <thead>
     <tr>
-      <th>Total Students on Campus</th>
+      <th>Total Failed Students</th>
 
     </tr>
     </thead>
     <jsp:useBean id="myBar9" scope="request" type="java.lang.Integer"/>
 
-      <tr>
-        <td>${myBar9} Students</td>
+    <tr>
+      <td>${myBar9}</td>
 
-      </tr>
+    </tr>
 
 
   </table>

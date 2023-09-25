@@ -19,7 +19,7 @@ public class registerYearBean {
     public registerYearBean() {
     }
 
-    public List<Map<String, String>> getMyBar5() {
+    public List<Map<String, String>> getMyBar5(String year) {
         Connection connection = connectBean.getConnection();
         List<Map<String, String>> myBar5 = new ArrayList<>();
 
@@ -29,11 +29,15 @@ public class registerYearBean {
                     "    SELECT enrollment_year AS academic_year, student_id\n" +
                     "    FROM enrollment\n" +
                     ") subquery\n" +
+                    "WHERE academic_year = ?\n" +  // Use a placeholder for the parameter
                     "GROUP BY academic_year\n" +
                     "ORDER BY academic_year";
 
+
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, year);
             ResultSet resultSet = statement.executeQuery();
+
 
             while (resultSet.next()) {
                 Map<String, String> myBarE = new HashMap<>();

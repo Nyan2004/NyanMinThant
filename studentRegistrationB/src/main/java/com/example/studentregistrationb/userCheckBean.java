@@ -152,7 +152,7 @@ public class userCheckBean {
         int totalEnrollments = 0;
         try {
             // Prepare the SQL query
-            String sql = "SELECT COUNT(*) AS total_enrollments FROM university_fact";
+            String sql = "SELECT COUNT(*) AS total_enrollments FROM enrollment";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             // Execute the query

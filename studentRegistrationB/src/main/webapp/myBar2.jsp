@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Enrollment Per Course</title>
-    <style><%@include file="/WEB-INF/css/style.css"%></style>
+    <style><%@include file="/WEB-INF/css/signin.css"%></style>
     <script src="<%=request.getContextPath()%>/resources/js/script.js"></script>
 </head>
 <body>
